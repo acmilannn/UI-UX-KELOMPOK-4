@@ -30,18 +30,7 @@
             max-height: 90vh;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            position: relative;
         }
 
         /* Header Section */
@@ -51,29 +40,6 @@
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #1d1d1f;
-            cursor: pointer;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.2s;
-        }
-
-        .close-button:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Apple Logo Container */
         .apple-logo-container {
             width: 54px;
             height: 54px;
@@ -83,7 +49,6 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
         }
 
         .apple-logo {
@@ -92,13 +57,11 @@
             fill: white;
         }
 
-        /* Title & Subtitle */
         .modal-title {
             font-size: 21px;
             font-weight: 600;
             color: #1d1d1f;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
         }
 
         .modal-subtitle {
@@ -107,42 +70,28 @@
             margin-bottom: 12px;
         }
 
-        .privacy-link {
-            font-size: 14px;
-            color: #007AFF;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.2s;
-        }
-
-        .privacy-link:hover {
-            color: #0051D5;
-            text-decoration: underline;
-        }
-
         /* Apps List */
         .apps-list {
-            padding: 20px 0;
+            padding: 10px 0;
             max-height: 50vh;
             overflow-y: auto;
         }
 
-        .app-item {
+        /* Styling Link sebagai Tombol Baris */
+        .app-link {
+            text-decoration: none; /* Menghilangkan garis bawah default */
             display: flex;
             align-items: center;
             padding: 16px 30px;
             border-bottom: 1px solid #f0f0f0;
-            cursor: pointer;
             transition: background-color 0.2s;
         }
 
-        .app-item:hover {
+        .app-link:hover {
             background-color: #f8f8f8;
         }
 
-        .app-item:last-child {
+        .app-link:last-child {
             border-bottom: none;
         }
 
@@ -174,209 +123,64 @@
         .app-arrow {
             color: #c7c7cc;
             font-size: 18px;
-            font-weight: 300;
-        }
-
-        /* Scrollbar Styling */
-        .apps-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .apps-list::-webkit-scrollbar-track {
-            background: #f0f0f0;
-            border-radius: 4px;
-        }
-
-        .apps-list::-webkit-scrollbar-thumb {
-            background: #c7c7cc;
-            border-radius: 4px;
-        }
-
-        .apps-list::-webkit-scrollbar-thumb:hover {
-            background: #86868b;
-        }
-
-        /* Responsive */
-        @media (max-width: 640px) {
-            .modal-header {
-                padding: 30px 20px 20px;
-            }
-
-            .app-item {
-                padding: 14px 20px;
-            }
-
-            .apple-logo-container {
-                width: 48px;
-                height: 48px;
-            }
-
-            .apple-logo {
-                width: 28px;
-                height: 28px;
-            }
-
-            .modal-title {
-                font-size: 19px;
-            }
         }
 
         /* Dark Mode Support */
         @media (prefers-color-scheme: dark) {
-            body {
-                background-color: rgba(0, 0, 0, 0.7);
-            }
-
-            .apple-modal {
-                background: #1c1c1e;
-            }
-
-            .modal-header {
-                border-bottom-color: #38383a;
-            }
-
-            .modal-title {
-                color: #f5f5f7;
-            }
-
-            .modal-subtitle {
-                color: #98989d;
-            }
-
-            .close-button {
-                color: #f5f5f7;
-            }
-
-            .close-button:hover {
-                background-color: #38383a;
-            }
-
-            .app-item {
-                border-bottom-color: #38383a;
-            }
-
-            .app-item:hover {
-                background-color: #2c2c2e;
-            }
-
-            .app-name {
-                color: #f5f5f7;
-            }
-
-            .apps-list::-webkit-scrollbar-track {
-                background: #2c2c2e;
-            }
+            .apple-modal { background: #1c1c1e; }
+            .modal-title, .app-name { color: #f5f5f7; }
+            .modal-header, .app-link { border-bottom-color: #38383a; }
+            .app-link:hover { background-color: #2c2c2e; }
         }
     </style>
 </head>
 <body>
 
     <div class="apple-modal">
-        <button class="close-button" onclick="closeModal()">&times;</button>
-        
         <div class="modal-header">
             <div class="apple-logo-container">
-                <svg class="apple-logo" viewBox="0 0 17 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5zm-2.5-9c-.5-.5-1-1-1.5-1.5-.5-.5-1-1-1.5-1.5-.5-.5-1-1-1.5-1.5-.5-.5-1-1-1.5-1.5-.5-.5-1-1-1.5-1.5-.5-.5-1-1-1.5-1.5z"/>
+                <svg class="apple-logo" viewBox="0 0 24 24">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .76-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                 </svg>
             </div>
             <h1 class="modal-title">Sign in with Apple</h1>
-            <p class="modal-subtitle">25 apps and websites</p>
-            <a href="#" class="privacy-link">
-                About Sign in with Apple & Privacy
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                    <path d="M6.5 1L11 5.5L6.5 10L5.5 9L8.5 6L1 6L1 4.5L8.5 4.5L5.5 1.5L6.5 1Z"/>
-                </svg>
-            </a>
+            <p class="modal-subtitle">Terhubung dengan Aplikasi</p>
         </div>
 
         <div class="apps-list">
-            <div class="app-item">
-                <div class="app-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5z"/>
-                    </svg>
-                </div>
+            
+            <a href="login(selamat).html" class="app-link">
+                <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg></div>
                 <span class="app-name">Adobe</span>
                 <span class="app-arrow">›</span>
-            </div>
+            </a>
 
-            <div class="app-item">
-                <div class="app-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5z"/>
-                    </svg>
-                </div>
+            <a href="login(selamat).html" class="app-link">
+                <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg></div>
                 <span class="app-name">Adobe XD</span>
                 <span class="app-arrow">›</span>
-            </div>
+            </a>
 
-            <div class="app-item">
-                <div class="app-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5z"/>
-                    </svg>
-                </div>
+            <a href="login(selamat).html" class="app-link">
+                <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg></div>
                 <span class="app-name">Bluebird Production App</span>
                 <span class="app-arrow">›</span>
-            </div>
+            </a>
 
-            <div class="app-item">
-                <div class="app-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5z"/>
-                    </svg>
-                </div>
+            <a href="login(selamat).html" class="app-link">
+                <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg></div>
                 <span class="app-name">Canva</span>
                 <span class="app-arrow">›</span>
-            </div>
+            </a>
 
-            <div class="app-item">
-                <div class="app-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5z"/>
-                    </svg>
-                </div>
-                <span class="app-name">Capshot iOS Official App ID</span>
+            <a href="login(selamat).html" class="app-link">
+                <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg></div>
+                <span class="app-name">Capshot iOS Official</span>
                 <span class="app-arrow">›</span>
-            </div>
+            </a>
+
         </div>
     </div>
-
-    <script>
-        function closeModal() {
-            // Tambahkan logika untuk menutup modal
-            document.querySelector('.apple-modal').style.animation = 'modalSlideOut 0.3s ease-out forwards';
-            setTimeout(() => {
-                document.querySelector('.apple-modal').style.display = 'none';
-            }, 300);
-        }
-
-        // Tambahkan animasi slide out
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes modalSlideOut {
-                from {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Handle app item click
-        document.querySelectorAll('.app-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const appName = this.querySelector('.app-name').textContent;
-                console.log('Clicked app:', appName);
-                // Tambahkan logika untuk mengelola aplikasi
-            });
-        });
-    </script>
 
 </body>
 </html>
