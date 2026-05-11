@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Minutes - Portal Berita</title>
+    <style>
+        /* FONTS & BASE */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;700;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff; /* Teks putih agar kontras */
+            line-height: 1.6;
+            /* BACKGROUND GRADIENT */
+            background: linear-gradient(180deg, #000000 0%, #1a0005 50%, #3d0014 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: #ff85a2; }
+
+        /* HEADER */
+        .main-header {
+            border-bottom: 2px solid #ff85a2;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .header-left, .header-right { display: flex; align-items: center; gap: 15px; }
+        .logo { height: 115px; object-fit: contain; filter: drop-shadow(0 0 5px #ff85a2); }
+
+        .main-nav { display: flex; gap: 20px; }
+        .nav-link { font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #ff85a2; }
+
+        /* USER PROFILE */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ff85a2; /* Warna profile pink */
+        }
+
+        .user-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 133, 162, 0.2);
+            border: 1px solid #ff85a2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+
+        /* LAYOUT */
+        .article-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .main-article h1 { font-size: 38px; line-height: 1.1; margin-bottom: 20px; color: #ffffff; }
+        .hero-img { 
+            width: 100%; 
+            margin-bottom: 25px; 
+            border-radius: 4px; 
+            border: 1px solid rgba(255, 133, 162, 0.3); 
+        }
+        
+        .article-content p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: #dfdfdf;
+        }
+        
+        /* SIDEBAR MINI CARD */
+        .section-tag { 
+            background: #ff85a2; 
+            color: black; 
+            font-size: 10px; 
+            padding: 5px; 
+            margin-bottom: 20px; 
+            text-align: center; 
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .mini-card { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid rgba(255, 133, 162, 0.1); 
+            padding-bottom: 15px; 
+        }
+
+        .mini-card img { 
+            width: 100%; 
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 4px; 
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 133, 162, 0.2);
+        }
+
+        .mini-card h4 { font-size: 15px; line-height: 1.3; font-weight: 800; color: #ffffff; }
+
+        /* KOMENTAR SECTION */
+        .comment-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(255, 133, 162, 0.2); }
+        .comment-count { font-size: 18px; font-weight: 900; margin-bottom: 25px; color: #ff85a2; }
+
+        /* INPUT TAMBAH KOMENTAR */
+        .add-comment {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        
+        .comment-input-wrapper {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .comment-textarea {
+            width: 100%;
+            height: 50px;
+            padding: 12px;
+            border: 1px solid rgba(255, 133, 162, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            resize: none;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .comment-textarea:focus {
+            height: 100px;
+            border-color: #ff85a2;
+            background: rgba(255, 133, 162, 0.05);
+        }
+
+        .btn-send {
+            background: #ff85a2;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            float: right;
+            border-radius: 4px;
+        }
+
+        /* DAFTAR KOMENTAR */
+        .comment-item { display: flex; gap: 15px; margin-bottom: 30px; }
+        .avatar { width: 40px; height: 40px; border-radius: 50%; background: #333; flex-shrink: 0; border: 1px solid #ff85a2; }
+        .comment-body { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; width: 100%; border: 1px solid rgba(255, 133, 162, 0.1); }
+        .comment-name { font-weight: 700; font-size: 13px; margin-bottom: 5px; display: block; color: #ff85a2; }
+        .comment-text { font-size: 14px; color: #dfdfdf; }
+
+        .footer { background: #000; color: #666; padding: 40px 0; text-align: center; margin-top: 60px; font-size: 10px; border-top: 1px solid #1a1a1a; }
+
+        @media (max-width: 768px) {
+            .article-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="header-left">
+                <img src="5menit.png" alt="Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <a href="politik.html" class="nav-link">Politik</a>
+                <a href="bisnis.html" class="nav-link">Bisnis</a>
+                <a href="sains.html" class="nav-link">Sains</a>
+                <a href="teknologi.html" class="nav-link">Teknologi</a>
+                <a href="budaya.html" class="nav-link">Budaya</a>
+            </nav>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-icon">👤</div>
+                    <span>Milan Lapoza</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="article-layout">
+            <section class="main-article">
+                <p style="font-size: 10px; font-weight: bold; color: #ff85a2; text-transform: uppercase;">Headline News</p>
+                <h1>Kronologi Oknum Brimob Aniaya Pelajar di Tual Maluku hingga Tewas, Ditetapkan Tersangka</h1>
+                <img src="polisi_1.png" alt="Hero Image" class="hero-img">
+                
+                <div class="article-content">
+                    <p><strong>AMBON, KOMPAS.com</strong> -  Kepolisian Resort (Polres) Tual, Maluku, membeberkan kronologi dugaan penganiayaan yang dilakukan oknum Brimob Bripda MS terhadap seorang pelajar berinisial AT (14) hingga menyebabkan korban tewas.</p>
+
+                    <p>Adapun aksi penganiayaan yang berujung tewasnya siswa madrasah tsanawiyah tersebut bermula saat Bripda MS bersama rekan-rekannya sesama anggota Brimob Batalyon C Pelopor menggelar patroli cipta kondisi di wilayah Kota Tual dan Kabupaten Maluku Tenggara pada Kamis (19/2/2026) dini hari.</p>
+
+                    <p>Patroli dengan menggunakan kendaraan taktis itu awalnya dilakukan Bripda MS dan rekan-rekannya di kawasan Mangga Dua Langgur sekitar Pukul 02.00 WIT. Namun, dalam patroli tersebut, tim mendapat informasi dari warga bahwa sedang terjadi aksi keributan yang berujung pemukulan di sekitar area Tete Pancing.</p>
+
+                    <p>Dari kronologi yang disampaikan, saat berada di lokasi, Bripda MS dan sejumlah rekannya kemudian turun dari kendaraan taktis dan membubarkan aksi balap liar di kawasan tersebut. Berselang 10 menit kemudian, dua sepeda motor yang dipacu oleh korban AT (14) dan NK (15) melaju dengan kecepatan tinggi dari arah Desa Ngadi menuju Tete Pancing. Saat itulah, Bripda MS yang sedang berada di lokasi mengayunkan helm taktikal kepada kedua pengendara motor. Namun, helm yang  diayunkan tersebut mengenai pelipis korban AT hingga korban terjatuh dari sepeda motor dalam posisi telungkup. Adapun sepeda motor korban AT ikut menabrak sepeda motor yang dikendarai NK hingga membuat korban NK terjatuh dari atas motor dan mengalami patah pada tangan kanannya.</p>
+
+                    <p>Kapolres Tual AKBP Whansi Asmoro mengatakan, setelah insiden tersebut, Bripda MS langsung ditahan untuk menjalani pemeriksaan. Selanjutnya, setelah dilakukan gelar perkara, Bripda MS langsung ditetapkan sebagai tersangka Jumat (20/2/2026).</p>
+
+                    <p>"Setelah gelar perkara Bripda MS langsung ditetapkan sebagai tersangka," kata Asmoro dalam konferensi pers di Mapolres Tual, Sabtu (21/2/2026).</p>
+                    
+                </div>
+
+                <div class="comment-section">
+                    <div class="comment-count">Komentar (3)</div>
+                    
+                    <div class="add-comment">
+                        <div class="avatar" style="background: #ff85a2; color: black; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">M</div>
+                        <div class="comment-input-wrapper">
+                            <textarea class="comment-textarea" placeholder="Tulis komentar..."></textarea>
+                            <button class="btn-send">Kirim Komentar</button>
+                        </div>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="avatar"></div>
+                        <div class="comment-body">
+                            <span class="comment-name">Andi Makassar</span>
+                            <p class="comment-text">Semoga hukum ditegakkan seadil-adilnya untuk korban. Sangat tragis sekali.</p>
+                        </div>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="avatar"></div>
+                        <div class="comment-body">
+                            <span class="comment-name">Siti Rahma</span>
+                            <p class="comment-text">Miris melihat oknum yang seharusnya melindungi malah menjadi pelaku kekerasan.</p>
+                        </div>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="avatar"></div>
+                        <div class="comment-body">
+                            <span class="comment-name">Budi Santoso</span>
+                            <p class="comment-text">Kawal terus kasus ini sampai tuntas!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sidebar-right">
+                <h3 class="section-tag">Berita Terkait</h3>
+                <article class="mini-card">
+                    <img src="emas.png" alt="Emas">
+                    <h4>BI Beberkan Alasan Mengapa Harga Emas Terus Melejit</h4>
+                </article>
+                <article class="mini-card">
+                    <img src="koper_uang.png" alt="KPK">
+                    <h4>KPK Sita 5 Koper Berisi Uang Rp 5 Miliar dari Hasil Geledah</h4>
+                </article>
+                <article class="mini-card">
+                    <img src="canva.png" alt="Canva">
+                    <h4>Komdigi Siapkan 8.000 Akun Canva Pro Gratis untuk UMKM</h4>
+                </article>
+                <article class="mini-card">
+                    <img src="khameni.png" alt="Khameni">
+                    <h4>Televisi Pemerintah Iran Konfirmasi Kematian Ayatollah Ali Khamenci, Tewas dalam Serangan AS-Israel</h4>
+                </article>
+                <article class="mini-card">
+                    <img src="komet.png" alt="Komet">
+                    <h4>Komet Ini Bisa Lebih Terang dari Bulan, Asal Tak Hancur oleh Matahari</h4>
+                </article>
+                <article class="mini-card">
+                    <img src="ihsg.webp" alt="IHSG">
+                    <h4>IHSG Sepekan Terkoreksi 0,44%, Kapitalisasi Pasar Menyusut Jadi Rp14.787 T</h4>
+                </article>
+
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 5 Menit News Portal.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

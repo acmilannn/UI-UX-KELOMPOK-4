@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d; /* Latar belakang Hitam */
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Bagian Kiri: Metode Pembayaran */
+        .payment-section {
+            flex: 2;
+        }
+
+        h2 { 
+            font-size: 1.5rem; 
+            margin-bottom: 20px; 
+            color: #ff85a2; /* Judul Pink */
+        }
+
+        details {
+            background: #1a1a1a; /* Card Hitam terang */
+            margin-bottom: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 133, 162, 0.1);
+            border: 1px solid #333;
+        }
+
+        summary {
+            padding: 20px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        summary::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: #ff85a2;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #333;
+        }
+
+        details[open] summary::after {
+            content: '▲';
+        }
+
+        .payment-options {
+            padding: 0 20px 20px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .option:hover {
+            color: #ff85a2;
+        }
+
+        .option:last-child { border-bottom: none; }
+
+        .icon { 
+            width: 40px; 
+            height: 40px; 
+            border: 1px solid #ff85a2; /* Lingkaran icon Pink */
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            background: white; /* Putih agar logo GOPAY/DANA terlihat jelas */
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .icon img {
+            width: 25px;
+            height: auto;
+        }
+
+        /* Bagian Kanan: Summary Card */
+        .summary-card {
+            flex: 1;
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 4px;
+            height: fit-content;
+            box-shadow: 0 4px 20px rgba(255, 133, 162, 0.1);
+            border: 1px solid #333;
+        }
+
+        .summary-card h4 {
+            color: #ff85a2;
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-weight: bold;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            color: white;
+        }
+
+        .price-row span:last-child {
+            color: #ff85a2; /* Harga Pink */
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background-color: #ff85a2; /* Tombol Pink */
+            color: black;
+            border: none;
+            padding: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-checkout:hover { 
+            background-color: #ff4d79; 
+            box-shadow: 0 0 15px rgba(255, 133, 162, 0.4);
+        }
+        
+        a { text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="payment-section">
+        <h2>Pilih Metode Pembayaran</h2>
+
+        <details open>
+            <summary>Dompet digital</summary>
+            <div class="payment-options">
+                <div class="option">
+                    <div class="icon">
+                        <img src="gopay.png" alt="Gopay">
+                    </div>
+                    <span>GOPAY</span>
+                </div>
+
+                <div class="option">
+                    <div class="icon">
+                        <img src="dana.png" alt="DANA">
+                    </div>
+                    <span>DANA</span>
+                </div>
+
+                <div class="option">
+                    <div class="icon">
+                        <img src="seabank.png" alt="SeaBank">
+                    </div>
+                    <span>SEABANK</span>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Kartu kredit / debit</summary>
+            <div class="payment-options">
+                <p style="font-size: 0.9rem; color: #888;">Masukkan detail kartu Anda di sini...</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="summary-card">
+        <h4>Akses Digital Tahunan</h4>
+        <p style="font-size: 0.8rem; color: #aaa;">Diperbarui secara otomatis. Batalkan kapan saja.</p>
+        
+        <div class="price-row">
+            <span>Bayar Sekarang</span>
+            <span>RP.0</span>
+        </div>
+
+        <a href="halaman-sukses.html">
+            <button class="btn-checkout">Lanjutkan</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

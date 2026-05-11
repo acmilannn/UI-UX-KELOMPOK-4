@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANA Payment Gateway</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0fbfc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .dana-card {
+            background: white;
+            width: 420px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .dana-header {
+            background-color: #118ee9;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* Bagian Nominal Pembayaran */
+        .payment-summary {
+            background-color: #fafafa;
+            padding: 15px 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-label { color: #666; font-size: 0.85rem; }
+        .total-amount { color: #333; font-weight: bold; font-size: 1.1rem; }
+
+        .dana-content {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .dana-logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        h3 { font-size: 1.2rem; margin-top: 0; color: #222; }
+        p { color: #777; font-size: 0.85rem; line-height: 1.4; }
+
+        /* Input */
+        .input-wrapper {
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .input-group {
+            display: flex;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .prefix {
+            background: #f8f8f8;
+            padding: 12px 15px;
+            border-right: 1px solid #e0e0e0;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            border: none;
+            padding: 12px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .btn-pay {
+            width: 100%;
+            background-color: #118ee9;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-pay:hover { background-color: #0d79c6; }
+
+        .footer-secure {
+            padding: 15px;
+            background: #fff;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #aaa;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dana-card">
+    <div class="dana-header">
+        <span class="dana-logo-text">DANA</span>
+    </div>
+
+    <div class="payment-summary">
+        <span class="total-label">Total Tagihan</span>
+        <span class="total-amount">Rp50.000</span>
+    </div>
+    
+    <div class="dana-content">
+        <h3>Lanjut ke Pembayaran</h3>
+        <p>Masukkan nomor ponsel DANA Anda untuk memulai pembayaran.</p>
+        
+        <div class="input-wrapper">
+            <div class="input-group">
+                <span class="prefix">+62</span>
+                <input type="text" placeholder="812 3456 7890">
+            </div>
+        </div>
+
+        <button class="btn-pay">BERIKUTNYA</button>
+        
+        <p style="margin-top: 20px;">
+            Atau hubungi <span style="color:#118ee9">1-500-445</span> jika ada kendala.
+        </p>
+    </div>
+
+    <div class="footer-secure">
+        <span>🔒 SECURE PAYMENT</span>
+        <span>🛡️ PCI DSS COMPLIANT</span>
+    </div>
+</div>
+
+</body>
+</html>

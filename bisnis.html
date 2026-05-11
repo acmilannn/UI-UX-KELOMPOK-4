@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Minutes - Portal Berita</title>
+    <style>
+        /* FONTS & BASE */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;700;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff; /* Teks putih untuk background hitam */
+            line-height: 1.6;
+            /* BACKGROUND GRADIENT DISINI */
+            background: linear-gradient(180deg, #000000 0%, #1a0005 50%, #3d0014 100%);
+            background-attachment: fixed; /* Agar gradient tetap diam saat di-scroll */
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: #ff85a2; } /* Hover pink cerah */
+
+        /* HEADER */
+        .main-header {
+            border-bottom: 2px solid #ff85a2; /* Border bawah pink */
+            background: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .header-left, .header-right { display: flex; align-items: center; gap: 15px; }
+        .logo { height: 115px; object-fit: contain; filter: drop-shadow(0 0 5px #ff85a2); }
+        .main-nav { display: flex; gap: 20px; }
+        .nav-link { font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #ff85a2; }
+        
+        .btn-login {
+            background: #ff85a2; /* Tombol pink */
+            color: black !important;
+            padding: 8px 16px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-subscribe {
+            border: 1px solid #ff85a2;
+            color: #ff85a2 !important;
+            padding: 8px 16px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* GRID SYSTEM */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        /* KONTEN UTAMA (SISI KIRI) */
+        .main-feature { text-align: left; }
+        
+        .main-category-tag {
+            background: #ff85a2; /* Tag kategori pink */
+            color: black;
+            display: inline-block;
+            padding: 4px 25px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .feature-img { 
+            width: 100%; 
+            display: block;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(255, 133, 162, 0.1);
+        }
+
+        .main-feature h1 {
+            font-size: 32px;
+            line-height: 1.1;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-align: center;
+            padding: 0 20px;
+            color: #ff85a2; /* Judul pink */
+        }
+
+        .main-feature .excerpt {
+            color: #ccc;
+            font-size: 16px;
+            text-align: center;
+            max-width: 80%;
+            margin: 0 auto 30px;
+        }
+
+        .author-line {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+            text-decoration: underline;
+            text-transform: uppercase;
+            margin-top: 40px;
+            color: #ff85a2;
+        }
+
+        /* SIDEBAR (SISI KANAN) */
+        .sidebar-right {
+            border-left: 1px solid #333;
+            padding-left: 30px;
+        }
+
+        .mini-card { 
+            margin-bottom: 35px; 
+            padding-bottom: 15px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .mini-card img { 
+            width: 90%; 
+            height: auto; 
+            margin-bottom: 15px;
+            border: 1px solid #ff85a2;
+        }
+
+        .mini-card h4 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 15px; 
+            line-height: 1.3; 
+            font-weight: 900;
+            margin-bottom: 8px;
+            text-align: center;
+            color: #ffffff;
+        }
+        
+        .meta-info { 
+            font-size: 10px; 
+            font-weight: bold; 
+            color: #ff85a2; 
+            text-transform: uppercase; 
+            display: block; 
+            text-align: center;
+        }
+
+        .nav-icons { color: #ff85a2; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .sidebar-right { border-left: none; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="header-left">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+                <a href="index.html" style="background:none; border:none; text-decoration:none; display: inline-flex; align-items: center;">
+                    <button style="background:none; border:none; font-size:24px; cursor:pointer; color: #ff85a2; padding: 0; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-home"></i> <span style="font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;"></span>
+                    </button>
+                </a>
+                <img src="5menit.png" alt="Logo" class="logo">
+            </div>
+
+            <nav class="main-nav">
+                <a href="politik.html" class="nav-link">Politik</a>
+                <a href="sains.html" class="nav-link">Bisnis</a>
+                <a href="sains.html" class="nav-link">Sains</a>
+                <a href="budaya.html" class="nav-link">Budaya</a>
+                <a href="teknologi.html" class="nav-link">Teknologi</a>
+            </nav>
+            
+            <div class="header-right">
+                <div class="nav-icons">
+                    <span style="cursor:pointer; margin-right: 10px;">🔍</span>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="loginutama.html" class="btn-login">Login</a>
+                    <a href="#" class="btn-subscribe">Berlangganan</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="hero-grid">
+            
+            <section class="main-feature">
+                <div class="main-category-tag">BISNIS</div>
+                <img src="pembangun tol japek.webp" alt="tol japek" class="feature-img">
+                
+                <h1>Pembangunan Tol Japek II Selatan Paket 2A Capai 81,65%, Target Rampung September 2026</h1>
+                
+                <p class="excerpt">
+                    JAKARTA - Pengerjaan proyek Tol Jakarta–Cikampek II Selatan Paket 2A dengan panjang main road 10,50 kilometer menunjukkan progres fisik konstruksi signifikan, yakni mencapai 81,65% per pertengahan Februari 2026. Paket 2A menjadi bagian strategis dalam mendukung konektivitas koridor selatan, khususnya antara Jakarta dan Jawa Barat.
+                </p>
+                <p class="excerpt">
+                    "Tol ini diharapkan memudahkan mobilitas masyarakat sekaligus mendukung distribusi logistik, sehingga berdampak positif terhadap pertumbuhan ekonomi di wilayah tersebut," ujar Aditya dalam keterangan resmi, Jumat (27/2/2026).
+                </p>
+
+                <span class="author-line">BY. Iqbal Dwi Purnama </span>
+            </section>
+
+            <aside class="sidebar-right">
+                <article class="mini-card">
+                    <img src="airlangga.png" alt="Airlanggga">
+                    <h4>Bukan 19%, Menko Airlangga Pastikan Tarif Dagang ke AS Jadi 15 Persen</h4>
+                    <span class="meta-info">BY. Anto Kurniawan</span>
+                </article>
+
+                <article class="mini-card">
+                    <img src="ihsg.webp" alt="Update Perang">
+                    <h4>IHSG Sepekan Terkoreksi 0,44%, Kapitalisasi Pasar Menyusut Jadi Rp14.787 T</h4>
+                    <span class="meta-info">BY. Iqbal Dwi Purnama</span>
+                </article>
+
+                <article class="mini-card">
+                    <img src="emas.webp" alt="Mediator">
+                    <h4>Harga Emas Hari Ini 28 Februari 2026: Produk Antam Meroket Rp 40 Ribu per Gram di Akhir Pekan</h4>
+                    <span class="meta-info">BY. Raden Jihad Akbar</span>
+                </article>
+            </aside>
+
+        </div>
+    </main>
+
+</body>
+</html>
