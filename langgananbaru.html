@@ -71,6 +71,36 @@
             justify-content: center;
             font-size: 14px;
         }
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a; /* Input pencarian hitam keabuan */
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-right: 10px;
+            border: 1px solid #ff85a2;
+        }
+
+        .search-input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 12px;
+            width: 120px;
+            color: white;
+            transition: width 0.3s ease;
+        }
+
+        .search-input:focus {
+            width: 180px;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
 
         /* LAYOUT */
@@ -209,6 +239,13 @@
                 <a href="teknologi.html" class="nav-link">Teknologi</a>
                 <a href="budaya.html" class="nav-link">Budaya</a>
             </nav>
+             <div class="header-right">
+                <div class="search-container">
+                    <form id="searchForm">
+                      <input type="text" id="searchInput" placeholder="Cari berita..." class="search-input"> 
+                      <button type="submit" class="search-btn">🔍</button> 
+                    </form>
+                </div>
             <div class="header-right">
                 <div class="user-profile">
                     <div class="user-icon">👤</div>
