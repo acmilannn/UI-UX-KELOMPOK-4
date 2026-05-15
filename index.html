@@ -167,6 +167,54 @@
         .main-feature h1 { font-size: 32px; margin: 15px 0; font-weight: 900; line-height: 1.1; color: white; }
         .main-feature .excerpt { font-style: italic; color: #bbb; font-size: 14px; margin-bottom: 20px; }
         .feature-img { width: 100%; box-shadow: 0 10px 30px rgba(255, 133, 162, 0.2); border: 1px solid #333; }
+        .main-feature {
+        /* Membuat elemen memiliki batas yang jelas */
+        background: linear-gradient(180deg, #000000 0%, #1a0005 50%, #3d0014 100%);
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 500px;
+        margin: 20px auto;
+        
+        /* EFEK TIMBUL (Box Shadow) */
+        /* Penjelasan: geser kanan, geser bawah, tingkat blur, penyebaran, warna */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        
+        /* Animasi halus saat kursor menyentuh (hover) */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+        /* Efek saat berita disentuh kursor */
+        .main-feature:hover {
+            transform: translateY(-5px); /* Sedikit naik ke atas */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .location {
+            color: #e74c3c;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            line-height: 1.3;
+            margin: 10px 0;
+        }
+
+        .excerpt {
+            color: #555;
+            font-size: 0.95rem;
+        }
 
         /* DARK SECTION (DIBUAT LEBIH PINK KONTRAS) */
         .dark-section {
@@ -315,10 +363,11 @@
             </aside>
 
             <section class="main-feature">
+                <a href="beritautama.html" style="text-decoration: none; color: inherit;">
                 <p class="location">Jakarta</p>
                 <h1>Penampakan 5 Koper Berisi Duit Rp5 Miliar dalam Penggeledahan Suap</h1>
                 <p class="excerpt">KPK menyita uang lebih dari Rp5 miliar pecahan mata uang asing...</p>
-                <img src="koper_uang.png" alt="Uang" class="feature-img">
+                <img src="koper_uang.png" alt="Uang" class="feature-img"></a>
             </section>
 
             <aside class="sidebar-right">

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Minutes News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* FONTS & BASE */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;700;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            background: linear-gradient(180deg, #000000 0%, #1a0005 50%, #3d0014 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* HEADER / NAVBAR */
+        .main-header {
+            background: #000000;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        /* Grouping Left (Icon, Logo, Nav) */
+        .nav-left-group {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .home-icon {
+            color: #ff85a2;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo {
+            height: 95px;
+            object-fit: contain;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #ff85a2;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover { color: #ffffff; }
+
+        /* Grouping Right (Search, About, Buttons) */
+        .nav-right-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: #111;
+            border: 1px solid #ff85a2;
+            border-radius: 25px;
+            padding: 5px 15px;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            font-size: 13px;
+            width: 150px;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: #ff85a2;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .about-link {
+            font-weight: 900;
+            font-size: 13px;
+            color: #ff85a2;
+            text-decoration: none;
+        }
+
+        /* Buttons */
+        .btn-login {
+            background: #ff85a2;
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .btn-subscribe {
+            border: 1px solid #ff85a2;
+            color: #ff85a2;
+            padding: 9px 20px;
+            border-radius: 4px;
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        /* HERO CONTENT */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        .news-article {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .article-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .author-badge {
+            background: rgba(211, 81, 139, 0.936);
+            color: rgb(16, 16, 16);
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .excerpt { color: #aaa; font-size: 18px; margin-bottom: 30px; }
+
+        .read-more {
+            color: #ff85a2;
+            font-weight: 900;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        .feature-img { width: 100%; border: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="nav-left-group">
+                <a href="index.html" style="text-decoration: none;">
+                <i class="fas fa-home home-icon"></i> </a>
+                <img src="5menit.png" alt="5 MINUTES" class="logo"> <nav class="main-nav">
+                    <a href="politik.html" class="nav-link">Politik</a>
+                    <a href="bisnis.html" class="nav-link">Bisnis</a>
+                    <a href="sains.html" class="nav-link">Sains</a>
+                    <a href="budaya.html" class="nav-link">Budaya</a>
+                    <a href="teknologi.html" class="nav-link">Teknologi</a>
+                </nav>
+            </div>
+
+            <div class="nav-right-group">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Cari berita...">
+                    <button type="submit" class="search-btn">🔍</button>
+                </div>
+                
+                <a href="about.html" class="about-link">ABOUT</a>
+                <a href="loginutama.html" class="btn-login">LOGIN</a>
+                <a href="langgananpaket.html" class="btn-subscribe">BERLANGGANAN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+    <article class="news-article">
+        <div class="article-content">
+            <div>
+                <span class="author-badge">POLITIK</span>
+                <span style="font-size: 11px; margin-left: 10px; font-weight: bold; color: #888;">JUMAT, 13 February, 2026 20:39 wib</span>
+            </div>
+            
+            <h1>Penampakan 5 Koper Berisi Duit Rp5 Miliar dalam Penggeledahan Kasus Suap Bea Cukai</h1>
+            
+            <!-- Menambah teks agar lebih informatif dan memberi space visual -->
+            <p class="excerpt">
+                Selain uang, kata Budi, penyidik juga mengamankan barang bukti berupa dokumen dan barang bukti elektronik lainnya. "Penyidik akan mendalami setiap barang bukti yang diamankan dalam giat penggeledahan ini," pungkasnya.
+
+            </p>
+            
+            <p class="excerpt" style="font-size: 16px; margin-top: -15px;">
+                Dalam perkara itu, KPK telah menetapkan enam orang sebagai tersangka kasus dugaan suap importasi barang di Direktorat Jenderal Bea Cukai (DJBC). Salah satunya Rizal selaku Direktur Penindakan dan Penyidikan Direktorat Jenderal Bea dan Cukai (P2 DJBC) periode 2024 sampai dengan Januari 2026.
+           
+            </p>
+            <span class="author-line">BY. ACHMAD AL FIQRI</span>
+        </div>
+        
+        <div class="article-image">
+            <img src="koper_uang.png" alt="Permanent Resident Card" class="feature-img">
+        </div>
+    </article>
+    </main>
+</body>
+</html>
