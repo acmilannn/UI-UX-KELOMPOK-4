@@ -214,11 +214,17 @@
             <h2>Masuk atau buat akun</h2>
             <p class="desc">Dengan melanjutkan, Anda menyetujui syarat & kebijakan kami.</p>
 
-            <form action="loginsandi.html" method="POST">
+            <!-- Cari bagian form ini -->
+            <form>
                 <label>Alamat Email</label>
                 <input type="email" name="email" placeholder="Masukkan email" required>
                 
-                <button type="submit">LANJUTKAN</button>
+                <!-- Ganti button submit dengan ini -->
+                <a href="loginsandi.html" style="text-decoration: none;">
+                    <button type="button" style="width: 100%; padding: 14px; background: #ff85a2; color: black; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">
+                        LANJUTKAN
+                    </button>
+                </a>
             </form>
 
             <div class="divider">atau lanjut dengan</div>

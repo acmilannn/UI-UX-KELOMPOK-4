@@ -70,6 +70,37 @@
             text-transform: uppercase;
         }
 
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a; /* Input pencarian hitam keabuan */
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-right: 10px;
+            border: 1px solid #ff85a2;
+        }
+
+        .search-input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 12px;
+            width: 120px;
+            color: white;
+            transition: width 0.3s ease;
+        }
+
+        .search-input:focus {
+            width: 180px;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
         /* GRID SYSTEM */
         .hero-grid {
             display: grid;
@@ -199,8 +230,13 @@
             </nav>
             
             <div class="header-right">
-                <div class="nav-icons" style="color: white; display: flex; align-items: center; gap: 15px;">
-                    🔍
+                <div class="search-container">
+                    <form id="searchForm">
+                      <input type="text" id="searchInput" placeholder="Cari berita..." class="search-input"> 
+                      <button type="submit" class="search-btn">🔍</button> 
+                    </form>
+                </div>
+
                     <a href="about.html" class="nav-link">About</a>
                     <a href="loginutama.html" class="btn-login">Login</a>
                     <a href="langganan.html" class="btn-subscribe">Berlangganan</a>
