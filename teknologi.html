@@ -14,7 +14,7 @@
             font-family: 'Inter', sans-serif;
             color: #ffffff; /* Teks putih untuk background hitam */
             line-height: 1.6;
-            /* BACKGROUND GRADIENT DISINI */
+           
             background: linear-gradient(180deg, #000000 0%, #1a0005 50%, #3d0014 100%);
             background-attachment: fixed; /* Agar gradient tetap diam saat di-scroll */
             min-height: 100vh;
@@ -49,6 +49,18 @@
 
         .header-left, .header-right { display: flex; align-items: center; gap: 15px; }
         .logo { height: 115px; object-fit: contain; filter: drop-shadow(0 0 5px #ff85a2); }
+        
+        #menu-toggle-input {
+            display: none; /* Sembunyikan checkbox asli */
+        }
+
+        .menu-toggle-label {
+            display: none; /* Sembunyikan di desktop */
+            color: #ff85a2;
+            font-size: 24px;
+            cursor: pointer;
+            order: -1;
+        }
         .main-nav { display: flex; gap: 20px; }
         .nav-link { font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #ff85a2; }
         
@@ -212,6 +224,10 @@
     <header class="main-header">
         <div class="container header-content">
             <div class="header-left">
+                <input type="checkbox" id="menu-toggle-input">
+                <label for="menu-toggle-input" class="menu-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
                 <a href="index.html" style="background:none; border:none; text-decoration:none; display: inline-flex; align-items: center;">
